@@ -40,7 +40,7 @@ vault write auth/aws/role/aws-demo-role-account auth_type=ec2 bound_account_id=$
 
 vault write auth/aws/role/aws-demo-role-ec2 \
     auth_type=ec2 \
-    bound_ami_id=ami-2e1ef954 \
+    bound_ami_id=ami-055a1ffcffad5d017 \
     policies=aws-demo-policy \
     max_ttl=500h
 

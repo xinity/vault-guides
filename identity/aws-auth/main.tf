@@ -1,5 +1,5 @@
 terraform {
-  required_version = ">= 0.11.0"
+  required_version = "= 0.11.14"
 }
 
 provider "aws" {
@@ -41,5 +41,15 @@ module "consumer-ec2" {
   ttl_tag       = "${var.ttl_tag}"
   ami_id        = "${var.ami_id}"
   instance_type = "${var.instance_type}"
+  iam_instance_profile_name = "${aws_iam_instance_profile.test_profile.name}"
   user_data     = "${module.consumer_config.user_data}"
+}
+
+output "vault_consumer_ip" {
+  value="${module.consumer-ec2.ip}"
+}
+
+
+output "vault_ip" {
+  value="${module.vault.ip}"
 }
